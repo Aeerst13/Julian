@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Joyeux Anniversaire Julian</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top, #0b1d51, #1c2d70);
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      color: #f5f5f5; /* texto claro global */
+    }
+
+    .card {
+      background-color: rgba(10, 20, 40, 0.98);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+      text-align: center;
+      max-width: 500px;
+      position: relative;
+      color: #fafafa; /* texto muy claro */
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #fff; /* blanco puro */
+      text-shadow: 0 0 10px #aabaff;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-top: 20px;
+      min-height: 2.5em;
+      white-space: pre-line;
+      color: #f0f0f0; /* casi blanco */
+      text-shadow: 0 0 6px #999fff;
+    }
+
+    .cake {
+      font-size: 100px;
+      line-height: 120px;
+      cursor: pointer;
+      user-select: none;
+      margin: 20px auto 10px auto;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.2s ease;
+    }
+
+    .cake:hover {
+      transform: scale(1.1);
+    }
+
+    .click-text {
+      font-size: 0.9em;
+      color: #dcdcff; /* texto claro */
+      margin-bottom: 20px;
+      font-style: italic;
+      user-select: none;
+      text-shadow: 0 0 5px #8c8cff;
+    }
+
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 6px white;
+      animation: float 12s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source
+      src="https://cdn.pixabay.com/download/audio/2023/03/02/audio_4e41364c7a.mp3?filename=happy-birthday-to-you-piano-version-14065.mp3"
+      type="audio/mpeg"
+    />
+    Votre navigateur ne prend pas en charge l'audio.
+  </audio>
+
+  <div class="card">
+    <h1>Joyeux Anniversaire, Julian!</h1>
+    <div class="cake" onclick="afficherMessage()">🎂</div>
+    <div class="click-text">Clique sur le gâteau</div>
+    <p id="message"></p>
+  </div>
+
+  <div class="particles" id="particles"></div>
+
+  <script>
+    function afficherMessage() {
+      const msg = document.getElementById('message');
+      msg.innerText =
+        'Un an de plus, un sort de plus pour te faire sourire… Joyeux anniversaire, Julian. ✨🤍\n\nBisous, TT';
+    }
+
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 80; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
+      particle.style.opacity = Math.random() * 0.8 + 0.2;
+      particlesContainer.appendChild(particle);
+    }
+  </script>
+</body>
+</html>
